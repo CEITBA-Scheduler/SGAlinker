@@ -9,8 +9,8 @@ export interface Subject {
 }
 export interface Timeblock {
     dia: string;
-    start: Time;
-    end: Time;
+    start: string;
+    end: string;
 }
 
 export interface Comission {
