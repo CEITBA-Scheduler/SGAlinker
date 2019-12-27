@@ -4,18 +4,18 @@ export interface Subject {
     name: string;
     code: string;
     search: string;
-    comissions: Comission[];
+    commissions: Commission[];
     priority: number;
 }
 export interface Timeblock {
-    dia: string;
+    day: string;
     start: string;
     end: string;
 }
 
-export interface Comission {
+export interface Commission {
     name: string;
-    profesores: string[];
+    professors: string[];
     subject?: Subject;
     schedule: Timeblock[];
 }

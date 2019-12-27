@@ -26,16 +26,16 @@ export class AppComponent {
         // push each TimeBlock in the commission
         for(let schedule in commission.courseCommissionTimes){
           let currTimeBlock = subj.createTimeBlock({
-            dia: schedule["day"],
+            day: schedule["day"],
             start: schedule["hourFrom"],
             end: schedule["hourTo"]
           });
           timeBlockArr.push(currTimeBlock);
         }
         // create the current comission with its current schedule
-        let currCommission = subj.createComission({
+        let currCommission = subj.createCommission({
           name: commission.commissionName,
-          profesores: [], 
+          professors: [], 
           subject: null, 
           schedule: timeBlockArr
         });
@@ -46,13 +46,13 @@ export class AppComponent {
             name: commission.subjectName,
             code: commission.subjectCode, 
             search: "9999", 
-            comissions: [currCommission], 
+            commissions: [currCommission], 
             priority: 0
           });
           this.subjDictByName[name] = currSubject;
         }else{
           // if the subject exists, we just push the comission
-          this.subjDictByName[name].comissions.push(currCommission);
+          this.subjDictByName[name].commissions.push(currCommission);
         }
       } 
   

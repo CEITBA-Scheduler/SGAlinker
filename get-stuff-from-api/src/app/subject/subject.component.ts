@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Timeblock, Comission, Subject } from '../materia';
+import { Timeblock, Commission, Subject } from '../materia';
 
 @Component({
   selector: 'app-subject',
@@ -8,16 +8,14 @@ import { Timeblock, Comission, Subject } from '../materia';
 })
 export class SubjectComponent implements OnInit {
   
-  courseComissions;
-
   createSubject(subject: Subject): {
     name: string;
     code: string;
     search: string;
-    comissions: Comission[];
+    commissions: Commission[];
     priority: number}{
     // sets the default values
-    let newSubject = {name: "foo" ,code: "9999", search: "9999", comissions: null, priority: 0};
+    let newSubject = {name: "foo" ,code: "9999", search: "9999", commissions: null, priority: 0};
     if (subject.name) {
       newSubject.name = subject.name;
     }
@@ -27,8 +25,8 @@ export class SubjectComponent implements OnInit {
     if (subject.search) {
       newSubject.search = subject.search;
     }
-    if (subject.comissions) {
-      newSubject.comissions = subject.comissions;
+    if (subject.commissions) {
+      newSubject.commissions = subject.commissions;
     }
     if (subject.priority) {
       newSubject.priority = subject.priority;
@@ -36,36 +34,36 @@ export class SubjectComponent implements OnInit {
     return newSubject;
   }
 
-  createComission(comission: Comission): {
+  createCommission(commission: Commission): {
     name: string;
-    profesores: string[];
+    professors: string[];
     subject?: Subject;
     schedule: Timeblock[]}{
     // sets the default values
-    let newComission = {name: "foo" ,profesores: [], subject: null, schedule: null};
-    if (comission.name) {
-      newComission.name = comission.name;
+    let newCommission = {name: "foo" ,professors: [], subject: null, schedule: null};
+    if (commission.name) {
+      newCommission.name = commission.name;
     }
-    if (comission.profesores) {
-      newComission.profesores = comission.profesores;
+    if (commission.professors) {
+      newCommission.professors = commission.professors;
     }
-    if (comission.subject) {
-      newComission.subject = comission.subject;
+    if (commission.subject) {
+      newCommission.subject = commission.subject;
     }
-    if (comission.schedule) {
-      newComission.schedule = comission.schedule;
+    if (commission.schedule) {
+      newCommission.schedule = commission.schedule;
     }
-    return newComission;
+    return newCommission;
   }
 
   createTimeBlock(timeblock: Timeblock): {
-    dia: string;
+    day: string;
     start: string;
     end: string}{
     // sets the default values
-    let newTimeBlock = {dia: "foo" , start: "foo", end: "foo"};
-    if (timeblock.dia) {
-      newTimeBlock.dia = timeblock.dia;
+    let newTimeBlock = {day: "foo" , start: "foo", end: "foo"};
+    if (timeblock.day) {
+      newTimeBlock.day = timeblock.day;
     }
     
     if (timeblock.start) {
