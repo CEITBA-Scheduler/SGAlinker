@@ -10,7 +10,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './components/login/login.component';
 
 const config: FirebaseOptions = {
-  apiKey: "",
+  apiKey: "asdasdsad",
   authDomain: "combinador-e59ef.firebaseapp.com",
   databaseURL: "https://combinador-e59ef.firebaseio.com",
   projectId: "combinador-e59ef",
