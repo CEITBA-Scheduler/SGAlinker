@@ -3,11 +3,10 @@
   Start editing to see some magic happen :)
 </p>
 
-<div *ngFor="let item of subjDictByName | keyvalue">
-    Key: <b>{{item.key}}</b> 
-    <br>
-    Value: 
-    <li *ngFor="let elem of item.value.commissions; let i = index">
-        <b>{{elem.name}}</b>
-    </li>
+<div *ngFor="let subject of this.getAllSubjects() | keyvalue">
+        Materias: <b>{{subject.key}}</b> 
+        <br>
+        <li *ngFor="let comision of subject.value.commissions">
+            Comisión: {{comision.name}}
+        </li>
 </div> 
