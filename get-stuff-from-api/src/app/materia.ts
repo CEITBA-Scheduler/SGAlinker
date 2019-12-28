@@ -9,8 +9,8 @@ export interface Subject {
 }
 export interface Timeblock {
     day: string;
-    start: string;
-    end: string;
+    start: Time;
+    end: Time;
 }
 
 export interface Commission {
