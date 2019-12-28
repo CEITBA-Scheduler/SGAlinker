@@ -17,8 +17,9 @@ import { ThrowStmt } from '@angular/compiler';
 
 export class AuthService implements CanActivate {
 
-  user?: User;
-
+  user?: User = null;
+  credentials?;
+  
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
@@ -26,16 +27,14 @@ export class AuthService implements CanActivate {
 ) { 
     // Get the auth state, then fetch the Firestore user document or return null
     this.afAuth.authState.subscribe(user => {
-      // Logged in
-      if (user) {
-        this.afs.doc<User>(`users/${user.uid}`).valueChanges().subscribe(user => {
-          this.user = user;
-        });
-      } else {
+      if(user){
+        //logged in
+        this.user = user;
+      }else{
         // Logged out
         this.user = null;
       }
-    });
+    })
   }
 
   getLogged(): boolean {
@@ -67,6 +66,16 @@ export class AuthService implements CanActivate {
 
   signInWithGoogle() {
     const provider = new auth.GoogleAuthProvider();
-    return this.afAuth.auth.signInWithPopup(provider);
+    this.afAuth.auth.signInWithPopup(provider).then(
+      result =>{
+        this.credentials = result;
+        //console.log("Success... Google account Linked!")
+      }).catch(
+        err=>{
+          console.log(err)
+          console.log("Failed to do")
+        }
+      )
+    
   }
 }

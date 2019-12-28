@@ -3,10 +3,13 @@
   Start editing to see some magic happen :)
 </p>
 
-<div *ngFor="let subject of this.linkerService.getAllSubjects().getValue() | keyvalue">
+
+<div *ngFor="let subject of this.linkerService.getAllSubjects() | keyvalue">
+        
         Materias: <b>{{subject.key}}</b> 
         <br>
         <li *ngFor="let comision of subject.value.commissions">
             Comisión: {{comision.name}}
         </li>
+         
 </div> 

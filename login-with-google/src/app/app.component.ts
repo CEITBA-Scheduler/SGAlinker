@@ -10,8 +10,4 @@ export class AppComponent {
   title = 'awesomeApp';
 
   constructor(private authService: AuthService) {}
-
-  iniciarSesion() {
-    this.authService.signInWithGoogle().then(credentials => console.log(credentials));
-  }
 }

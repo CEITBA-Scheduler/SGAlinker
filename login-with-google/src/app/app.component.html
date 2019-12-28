@@ -1,2 +1,9 @@
-<button (click)="iniciarSesion()">Login</button>
-hola
+<div *ngIf="this.authService.getLogged();">Usted inició sesión!</div>
+<div *ngIf="!this.authService.getLogged();">Usted no inició sesión :(</div>
+
+<div class="container">
+    <router-outlet>
+      
+    </router-outlet>
+  </div>
+  
