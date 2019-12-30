@@ -27,6 +27,7 @@ export class AuthService implements CanActivate {
 ) { 
     // Get the auth state, then fetch the Firestore user document or return null
     this.afAuth.authState.subscribe(user => {
+      //console.log(user)
       if(user){
         //logged in
         this.user = user;
@@ -69,6 +70,8 @@ export class AuthService implements CanActivate {
     this.afAuth.auth.signInWithPopup(provider).then(
       result =>{
         this.credentials = result;
+        console.log(this.credentials)
+        console.log(this.credentials["user"]["email"])
         //console.log("Success... Google account Linked!")
       }).catch(
         err=>{
